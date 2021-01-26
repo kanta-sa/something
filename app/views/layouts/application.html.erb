@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <% unless flash.empty? %>
+      <script type="text/javascript">
+        <% flash.each do |name, msg| %>
+        <% name = "success" if name == "notice" %>
+        <% name = "error" if name == "alert" %>
+        toastr['<%= name %>']('<%= msg %>');
+        <% end %>
+      </script>
+    <% end %>
     <%= yield %>
   </body>
 </html>
