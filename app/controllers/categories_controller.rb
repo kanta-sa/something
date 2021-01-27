@@ -5,6 +5,11 @@ class CategoriesController < ApplicationController
     @category.todos.build
   end
 
+  def show
+    @category = Category.find(params[:id])
+    @todos = @category.todos
+  end
+
   def create
     @category = current_user.categories.build(category_params)
     if @category.save

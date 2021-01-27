@@ -1,7 +1,9 @@
 <h1>カテゴリー一覧</h1>
 
 <% @categories.each do |category| %>
-  <a href="#"><%= category.name %></a>
+  <%= link_to category_path(category) do %>
+    <%= category.name %>
+  <% end %>
 <% end %>
 
 <%= form_with model: @category do |f| %>
