@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions',
   }
+
+  resources :categories
 end
