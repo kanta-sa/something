@@ -61,3 +61,5 @@ gem 'devise-i18n-views'
 
 gem "jquery-rails"
 gem 'toastr-rails'
+
+gem 'pry-rails'
