@@ -1,10 +1,14 @@
 <h1>カテゴリー一覧</h1>
 
-<% @categories.each do |category| %>
-  <%= link_to category_path(category) do %>
-    <%= category.name %>
+<div class="">
+  <% @categories.each do |category| %>
+    <div class="">
+      <%= link_to category_path(category) do %>
+        <%= category.name %>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>
 
 <%= form_with model: @category do |f| %>
   <%= f.label(:name) %>
