@@ -24,6 +24,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, todos_attributes: [:content])
+    params.require(:category).permit(:name, todos_attributes: [:title, :content])
   end
 end

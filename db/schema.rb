@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_01_27_094905) do
   end
 
   create_table "todos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
     t.text "content"
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false

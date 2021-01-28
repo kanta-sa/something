@@ -8,4 +8,5 @@ ja:
       category:
         name: 'カテゴリー名'
       todo:
+        title: 'タイトル'
         content: '内容'
