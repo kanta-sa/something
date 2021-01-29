@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @todos = @category.todos
+    @todo = Todo.new
   end
 
   def create

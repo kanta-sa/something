@@ -9,3 +9,14 @@
     </div>
   <% end %>
 </div>
+
+<div>
+  <%= form_with model: @todo, url: category_todos_path(@category) do |f| %>
+    <%= f.label(:title) %>
+    <%= f.text_field(:title) %>
+    <%= f.label(:content) %>
+    <%= f.text_area(:content) %>
+
+    <%= f.submit "登録" %>
+  <% end %>
+</div>
