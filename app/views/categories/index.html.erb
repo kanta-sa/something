@@ -3,24 +3,34 @@
 <div class="">
   <% @categories.each do |category| %>
     <div class="">
-      <%= link_to category_path(category) do %>
-        <%= category.name %>
-      <% end %>
+      <p></p>
+      <div class="">
+        <%= link_to category_path(category) do %>
+          <%= category.name %>
+        <% end %>
+        <div>
+          <% category.todos.each do |todo| %>
+            <%= todo.title %>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
 
-<%= form_with model: @category do |f| %>
-  <%= f.label(:name) %>
-  <%= f.text_field(:name) %>
-  <div class="">
-    <%= f.fields_for :todos do |ff| %>
-      <%= ff.label(:title) %>
-      <%= ff.text_field(:title) %>
-      <%= ff.label(:content) %>
-      <%= ff.text_area(:content) %>
-    <% end %>
-  </div>
+<div>
+  <%= form_with model: @category do |f| %>
+    <%= f.label(:name) %>
+    <%= f.text_field(:name) %>
+    <div class="">
+      <%= f.fields_for :todos do |ff| %>
+        <%= ff.label(:title) %>
+        <%= ff.text_field(:title) %>
+        <%= ff.label(:content) %>
+        <%= ff.text_area(:content) %>
+      <% end %>
+    </div>
 
-  <%= f.submit "登録" %>
-<% end %>
+    <%= f.submit "登録" %>
+  <% end %>
+</div>
