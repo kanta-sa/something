@@ -63,3 +63,6 @@ gem "jquery-rails"
 gem 'toastr-rails'
 
 gem 'pry-rails'
+
+gem 'rubocop', require: false
+gem 'rubocop-rails', require: false

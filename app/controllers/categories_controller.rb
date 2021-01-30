@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
-      flash[:notice] = "カテゴリーを追加しました"
+      flash[:notice] = 'カテゴリーを追加しました'
       redirect_to categories_path
     else
       @categories = Category.all
