@@ -1,1 +1,40 @@
 inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'config/**/*'
+    - 'db/schema.rb'
+
+Bundler/OrderedGems:
+  Exclude:
+    - 'Gemfile'
+
+Layout/ExtraSpacing:
+  Exclude:
+    - 'app/models/*'
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  Exclude:
+    - 'db/migrate/20210125090509_devise_create_users.rb'
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Layout/LineLength:
+  Max: 180
