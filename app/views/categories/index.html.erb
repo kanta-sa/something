@@ -1,36 +1,45 @@
 <h1>カテゴリー一覧</h1>
 
-<div class="">
-  <% @categories.each do |category| %>
-    <div class="">
-      <p></p>
-      <div class="">
+<div class="category-container">
+  <div class="category-items">
+    <% @categories.each do |category| %>
+      <div class="category-item">
         <%= link_to category_path(category) do %>
           <%= category.name %>
         <% end %>
-        <div>
+        <div class="todo-content">
           <% category.todos.each do |todo| %>
-            <%= todo.title %>
+            <p> - <%= todo.title %></p>
           <% end %>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-<div>
-  <%= form_with model: @category do |f| %>
-    <%= f.label(:name) %>
-    <%= f.text_field(:name) %>
-    <div class="">
-      <%= f.fields_for :todos do |ff| %>
-        <%= ff.label(:title) %>
-        <%= ff.text_field(:title) %>
-        <%= ff.label(:content) %>
-        <%= ff.text_area(:content) %>
+  <div class="category-form">
+    <%= form_with model: @category, local: true do |f| %>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li class="red-text"><%= msg %></li>
       <% end %>
-    </div>
-
-    <%= f.submit "登録" %>
+      <div class="category-form">
+        <%= f.label :name, class: 'form-label' %>
+        <%= f.text_field :name, placeholder: 'カテゴリー名', class: 'form-control' %>
+      </div>
+      <div class="">
+        <%= f.fields_for :todos do |ff| %>
+          <div class="category-form">
+            <%= ff.label :title, class: 'form-label' %>
+            <%= ff.text_field :title, placeholder: 'タイトル', class: 'form-control text_area' %>
+          </div>
+          <div class="category-form">
+            <%= ff.label :content, class: 'form-label' %>
+            <%= ff.text_area :content, class: 'form-control' %>
+          </div>
+        <% end %>
+      </div>
+      <div class="category-form-btn">
+        <%= f.submit "登録" %>
+      </div>
   <% end %>
+  </div>
 </div>
