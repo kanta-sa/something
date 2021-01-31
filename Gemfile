@@ -63,3 +63,5 @@ gem 'toastr-rails'
 
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
+
+gem 'enumerize'
