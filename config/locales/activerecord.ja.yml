@@ -3,6 +3,9 @@ ja:
     attributes:
       category:
         name: 'カテゴリー名'
+      category/todos:
+        title: 'タイトル'
+        content: '内容'
       todo:
         title: 'タイトル'
         content: '内容'
