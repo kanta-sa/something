@@ -9,6 +9,9 @@ h1 {
     margin: 1% 0;
     .category-item {
       margin: 2% 0;
+      .todo-content {
+        display: flex;
+      }
     }
   }
 

@@ -12,6 +12,22 @@ class TodosController < ApplicationController
     end
   end
 
+  def update
+    @todo = Todo.find_by(id: params[:id])
+    @categories = Category.all
+    @category = Category.new
+    @category.todos.build
+    if params[:flg]
+      if @todo.update_attributes(status: 'done')
+        redirect_to categories_path
+      else
+        render 'categories/index'
+      end
+    else
+      render 'categories/index'
+    end
+  end
+
   private
 
   def todo_params

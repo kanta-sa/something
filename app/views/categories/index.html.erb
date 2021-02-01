@@ -7,11 +7,18 @@
         <%= link_to category_path(category) do %>
           <%= category.name %>
         <% end %>
-        <div class="todo-content">
-          <% category.todos.each do |todo| %>
+        <% category.todos.each do |todo| %>
+          <div class="todo-content">
             <p> - <%= todo.title %></p>
-          <% end %>
-        </div>
+            <% if todo.status.yet? %>
+              <div>
+                <%= link_to '実行済み', category_todo_path(category, todo, params: { flg: true }), method: :put %>
+              </div>
+            <% else %>
+              <div>yes</div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
