@@ -9,3 +9,8 @@ ja:
       todo:
         title: 'タイトル'
         content: '内容'
+  enumerize:
+    todo:
+      status:
+        yet: '未実行'
+        done: '実行済み'
