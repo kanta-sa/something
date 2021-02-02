@@ -11,6 +11,9 @@ h1 {
       margin: 2% 0;
       .todo-content {
         display: flex;
+        .grey-scale {
+          color: grey;
+        }
       }
     }
   }

@@ -19,11 +19,24 @@ class TodosController < ApplicationController
     @category.todos.build
     if params[:flg]
       if @todo.update_attributes(status: 'done')
-        redirect_to categories_path
+        redirect_to categories_url
       else
         render 'categories/index'
       end
     else
+      render 'categories/index'
+    end
+  end
+
+  def destroy
+    @todo = Todo.find_by(id: params[:id])
+    if @todo.destroy
+      flash[:notice] = "#{@todo.title}を削除しました。"
+      redirect_to categories_url
+    else
+      @categories = Category.all
+      @category = Category.new
+      @category.todos.build
       render 'categories/index'
     end
   end
