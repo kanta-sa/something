@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_todo, only: [:update, :destroy]
 
   def create
     @category = Category.find(params[:category_id])
@@ -15,8 +16,7 @@ class TodosController < ApplicationController
   end
 
   def update
-    @todo = Todo.find_by(id: params[:id])
-    @categories = Category.all
+    @categories = current_user.categories
     @category = Category.new
     @category.todos.build
     if params[:flg]
@@ -31,12 +31,11 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @todo = Todo.find_by(id: params[:id])
     if @todo.destroy
       flash[:notice] = "#{@todo.title}を削除しました。"
       redirect_to categories_url
     else
-      @categories = Category.all
+      @categories = current_user.categories
       @category = Category.new
       @category.todos.build
       render 'categories/index'
@@ -47,5 +46,9 @@ class TodosController < ApplicationController
 
   def todo_params
     params.require(:todo).permit(:title, :content, :category_id)
+  end
+
+  def set_todo
+    @todo = Todo.find(params[:id])
   end
 end

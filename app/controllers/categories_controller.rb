@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
       flash[:notice] = 'カテゴリーを追加しました'
       redirect_to categories_path
     else
-      @categories = Category.all
+      @categories = current_user.categories
       render :index
     end
   end
