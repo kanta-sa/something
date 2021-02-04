@@ -1,4 +1,6 @@
 class TodosController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @category = Category.find(params[:category_id])
     @todo = Todo.new(todo_params)
