@@ -5,5 +5,6 @@ class Category < ApplicationRecord
   accepts_nested_attributes_for :todos, allow_destroy: true
 
   # バリデーション
-  validates :name,        presence: true
+  validates :name,        presence: true,
+                          length: { maximum: 20 }
 end
