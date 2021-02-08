@@ -5,6 +5,7 @@ AllCops:
     - 'bin/*'
     - 'config/**/*'
     - 'db/schema.rb'
+    - 'spec/*'
 
 Bundler/OrderedGems:
   Exclude:
@@ -38,3 +39,6 @@ Style/SymbolArray:
 
 Layout/LineLength:
   Max: 180
+
+Metrics/MethodLength:
+  Max: 20
