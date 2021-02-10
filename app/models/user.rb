@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   # 関連
   has_many :categories
+  has_many :questions
 end
