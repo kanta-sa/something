@@ -1,5 +1,9 @@
 ja:
   activerecord:
+    models:
+      category: 'カテゴリー'
+      todo: 'TODO'
+      question: 'アンケート'
     attributes:
       category:
         name: 'カテゴリー名'
@@ -9,6 +13,8 @@ ja:
       todo:
         title: 'タイトル'
         content: '内容'
+      question:
+        title: '題名'
   enumerize:
     todo:
       status:
