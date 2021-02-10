@@ -1,6 +1,8 @@
 class Question < ApplicationRecord
   # 関連
   belongs_to :user
+  has_many :user_questions
+  has_many :users, through: :user_questions
 
   # バリデーション
   validates :title,         presence: true,
