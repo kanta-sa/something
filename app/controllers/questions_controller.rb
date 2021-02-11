@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.build(question_params)
-    binding.pry
     if @question.save
       flash[:notice] = 'アンケートを作成しました。'
       redirect_to questions_path
