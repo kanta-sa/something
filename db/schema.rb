@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_10_134752) do
+ActiveRecord::Schema.define(version: 2021_02_11_012135) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2021_02_10_134752) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "choices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_choices_on_question_id"
   end
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,6 +69,7 @@ ActiveRecord::Schema.define(version: 2021_02_10_134752) do
   end
 
   add_foreign_key "categories", "users"
+  add_foreign_key "choices", "questions"
   add_foreign_key "questions", "users"
   add_foreign_key "todos", "categories"
   add_foreign_key "user_questions", "questions"
