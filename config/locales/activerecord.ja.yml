@@ -4,6 +4,7 @@ ja:
       category: 'カテゴリー'
       todo: 'TODO'
       question: 'アンケート'
+      choice: '回答'
     attributes:
       category:
         name: 'カテゴリー名'
@@ -14,7 +15,11 @@ ja:
         title: 'タイトル'
         content: '内容'
       question:
-        title: '題名'
+        title: '問題'
+      question/choices:
+        content: '回答'
+      choice:
+        content: '回答'
   enumerize:
     todo:
       status:
