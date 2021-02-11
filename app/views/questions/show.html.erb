@@ -1,0 +1,13 @@
+<div class="question-wrapper">
+  <div class="question-title">
+    <%= @question.title %>
+  </div>
+
+  <div class="choice-wrapper">
+    <% @choices.each do |choice| %>
+      <div class="choice-content">
+        <%= choice.content %>
+      </div>
+    <% end %>
+  </div>
+</div>

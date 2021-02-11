@@ -3,6 +3,11 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def show
+    @question = Question.find(params[:id])
+    @choices = @question.choices
+  end
+
   def new
     @question = current_user.questions.new
     @question.choices.build

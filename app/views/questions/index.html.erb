@@ -1,5 +1,15 @@
-<%= link_to '新規登録', new_question_path %>
+<div>
+  <%= link_to '新規登録', new_question_path %>
+</div>
 
-<% @questions.each do |q| %>
-  <%= q.title %>
-<% end %>
+<div>
+  <% @questions.each do |q| %>
+    <div>
+      <%= link_to question_path(q) do %>
+        <%= q.title %>
+      <% end  %>
+    </div>
+
+  <% end %>
+</div>
+
