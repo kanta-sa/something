@@ -5,11 +5,11 @@
 
   <div class="choice-wrapper">
     <% @choices.each do |choice| %>
-      <div class="choice-content">
-        <%= link_to question_choice_path(@question, choice), method: :patch do %>
+      <%= link_to question_choice_path(@question, choice), method: :patch do %>
+        <div class="choice-content">
           <%= choice.content %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
