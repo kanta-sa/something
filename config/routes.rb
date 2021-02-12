@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :todos
   end
 
-  resources :questions
+  resources :questions do
+    resources :choices, only: [:update]
+  end
 end
