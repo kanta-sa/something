@@ -1,7 +1,6 @@
 module ApplicationHelper
   # This method creates a link with `data-id` `data-fields` attributes. These attributes are used to create new instances of the nested fields through Javascript.
   def link_to_add_fields(name, f, association)
-
     # Takes an object (@person) and creates a new instance of its associated model (:addresses)
     # To better understand, run the following in your terminal:
     # rails c --sandbox
@@ -21,11 +20,10 @@ module ApplicationHelper
     # child_index` is used to ensure the key of the associated array is unique, and that it matched the value in the `data-id` attribute.
     # `person[addresses_attributes][child_index_value][_destroy]`
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
-
       # `association.to_s.singularize + "_fields"` ends up evaluating to `address_fields`
       # The render function will then look for `views/people/_address_fields.html.erb`
       # The render function also needs to be passed the value of 'builder', because `views/people/_address_fields.html.erb` needs this to render the form tags.
-      render(association.to_s.singularize + "_fields", f: builder)
+      render("#{association.to_s.singularize}_fields", f: builder)
     end
 
     # This renders a simple link, but passes information into `data` attributes.
@@ -34,7 +32,6 @@ module ApplicationHelper
     # The `fields:` are rendered from the `fields` blocks.
     # We use `gsub("\n", "")` to remove anywhite space from the rendered partial.
     # The `id:` value needs to match the value used in `child_index: id`.
-    link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
-
+    link_to(name, '#', class: 'add_fields', data: { id: id, fields: fields.gsub('\n', '') })
   end
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :choice do
-    content { "MyString" }
+    content { '' }
     question { nil }
   end
 end

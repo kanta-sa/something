@@ -14,10 +14,10 @@ class Question < ApplicationRecord
 
   # メソッド
   def user_answered?(user)
-    self.users.include?(user)
+    users.include?(user)
   end
 
   def answer_question(user)
-    self.user_questions.find_or_create_by(user_id: user.id)
+    user_questions.find_or_create_by(user_id: user.id)
   end
 end

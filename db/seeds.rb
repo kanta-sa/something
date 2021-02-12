@@ -32,21 +32,21 @@ user.categories.create!(
 )
 
 questionnaire = [
-  {title: '好きな食べ物は？', choices_attributes: {
+  { title: '好きな食べ物は？', choices_attributes: {
     0 => { content: '中華' },
     1 => { content: '洋食' },
     2 => { content: '和食' }
-  }},
-  {title: '犬派、猫派？', choices_attributes: {
+  } },
+  { title: '犬派、猫派？', choices_attributes: {
     0 => { content: '犬派' },
     1 => { content: '猫派' }
-  }},
-  {title: '好きなカフェは？', choices_attributes: {
+  } },
+  { title: '好きなカフェは？', choices_attributes: {
     0 => { content: 'Starbucks' },
     1 => { content: "Tully's" },
     2 => { content: 'ドトール' },
     3 => { content: 'その他' }
-  }}
+  } }
 ]
 
 questionnaire.each do |q|
