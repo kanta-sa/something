@@ -11,4 +11,13 @@ class Question < ApplicationRecord
                             length: { maximum: 30 }
   # validates :answered,    presence: true
   validates :user,          presence: true
+
+  # メソッド
+  def user_answered?(user)
+    self.users.include?(user)
+  end
+
+  def answer_question(user)
+    self.user_questions.find_or_create_by(user_id: user.id)
+  end
 end

@@ -4,11 +4,19 @@
   </div>
 
   <div class="choice-wrapper">
-    <% @choices.each do |choice| %>
-      <%= link_to question_choice_path(@question, choice), method: :patch do %>
+    <% if @question.user_answered?(current_user) %>
+      <% @choices.each do |choice| %>
         <div class="choice-content">
           <%= choice.content %>
         </div>
+      <% end %>
+    <% else %>
+      <% @choices.each do |choice| %>
+        <%= link_to question_choice_path(@question, choice), method: :patch do %>
+          <div class="choice-content">
+            <%= choice.content %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

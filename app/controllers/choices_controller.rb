@@ -4,6 +4,7 @@ class ChoicesController < ApplicationController
     @question = Question.find(params[:question_id])
     cnt = @choice.ans_cnt
     if @choice.update_attributes(ans_cnt: cnt+1)
+      @question.answer_question(current_user)
       redirect_to question_path(@question)
     else
       @choices = @question.choices
