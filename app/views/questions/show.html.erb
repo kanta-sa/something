@@ -1,6 +1,7 @@
 <div class="question-wrapper">
   <div class="question-title">
-    <%= @question.title %>
+    <div><%= @question.title %></div>
+    <div class="question-ans-cnt">回答数: <%= @question.total_ans_cnt %></div>
   </div>
 
   <div class="choice-wrapper">

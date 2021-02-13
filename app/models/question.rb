@@ -20,4 +20,8 @@ class Question < ApplicationRecord
   def answer_question(user)
     user_questions.find_or_create_by(user_id: user.id)
   end
+
+  def total_ans_cnt
+    choices.sum(:ans_cnt)
+  end
 end

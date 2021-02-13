@@ -6,6 +6,12 @@
 .question-title {
   border-bottom: 1px solid black;
   margin: 1%;
+  position: relative;
+  .question-ans-cnt {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+  }
 }
 
 .choice-wrapper {
