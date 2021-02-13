@@ -9,10 +9,7 @@ class Choice < ApplicationRecord
 
   # メソッド
   def choice_score_percentage
-    total = 0
-    question.choices.each do |choice|
-      total += choice.ans_cnt
-    end
+    total = question.choices.sum(:ans_cnt)
     if ans_cnt
       ((ans_cnt.to_f/total)*100).round(1)
     else
