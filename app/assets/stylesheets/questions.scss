@@ -13,5 +13,20 @@
     border: 1px solid black;
     margin: 1%;
     padding: 2%;
+    position: relative;
+    .choice-front {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      background-color: rgba(6, 245, 255, 0.2);
+      height: 100%;
+    }
+    .choice-percentage {
+      position: absolute;
+      bottom: 0;
+      right: 20px;
+      font-size: 8px;
+    }
   }
 }
