@@ -1,0 +1,2 @@
+$('#question-ans-cnt').html("回答数: <%= @question.total_ans_cnt %>");
+$('#choice-wrapper').html("<%= j(render 'questions/choice_select', question: @question, choices: @choices) %>");

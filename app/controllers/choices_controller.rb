@@ -3,12 +3,8 @@ class ChoicesController < ApplicationController
     @choice = Choice.find(params[:id])
     @question = Question.find(params[:question_id])
     cnt = @choice.ans_cnt
-    if @choice.update_attributes(ans_cnt: cnt + 1)
-      @question.answer_question(current_user)
-      redirect_to question_path(@question)
-    else
-      @choices = @question.choices
-      render 'questions/show'
-    end
+    @choice.update_attributes(ans_cnt: cnt + 1)
+    @question.answer_question(current_user)
+    @choices = @question.choices
   end
 end

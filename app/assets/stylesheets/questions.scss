@@ -7,14 +7,14 @@
   border-bottom: 1px solid black;
   margin: 1%;
   position: relative;
-  .question-ans-cnt {
+  #question-ans-cnt {
     position: absolute;
     bottom: 0;
     right: 10px;
   }
 }
 
-.choice-wrapper {
+#choice-wrapper {
   .choice-content {
     border: 1px solid black;
     margin: 1%;

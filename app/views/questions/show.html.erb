@@ -1,26 +1,10 @@
 <div class="question-wrapper">
   <div class="question-title">
     <div><%= @question.title %></div>
-    <div class="question-ans-cnt">回答数: <%= @question.total_ans_cnt %></div>
+    <div id="question-ans-cnt">回答数: <%= @question.total_ans_cnt %></div>
   </div>
 
-  <div class="choice-wrapper">
-    <% if @question.user_answered?(current_user) %>
-      <% @choices.each do |choice| %>
-        <div class="choice-content">
-          <div class="choice-front" style="width: <%= choice.choice_score_percentage %>%"></div>
-          <div class="choice-back"><%= choice.content %></div>
-          <div class="choice-percentage"><%= choice.choice_score_percentage %>%</div>
-        </div>
-      <% end %>
-    <% else %>
-      <% @choices.each do |choice| %>
-        <%= link_to question_choice_path(@question, choice), method: :patch do %>
-          <div class="choice-content">
-            <%= choice.content %>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
+  <div id="choice-wrapper">
+    <%= render 'choice_select', question: @question, choices: @choices %>
   </div>
 </div>
