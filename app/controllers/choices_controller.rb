@@ -1,4 +1,6 @@
 class ChoicesController < ApplicationController
+  before_action :authenticate_user!
+
   def update
     @choice = Choice.find(params[:id])
     @question = Question.find(params[:question_id])
