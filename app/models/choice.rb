@@ -11,7 +11,7 @@ class Choice < ApplicationRecord
   def choice_score_percentage
     total = question.choices.sum(:ans_cnt)
     if ans_cnt
-      ((ans_cnt.to_f/total)*100).round(1)
+      ((ans_cnt.to_f / total) * 100).round(1)
     else
       0.0
     end
