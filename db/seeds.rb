@@ -46,7 +46,23 @@ questionnaire = [
     1 => { content: "Tully's" },
     2 => { content: 'ドトール' },
     3 => { content: 'その他' }
-  } }
+  } },
+  { title: '好きなスポーツは？', choices_attributes: {
+    0 => { content: '野球' },
+    1 => { content: 'サッカー' },
+    2 => { content: 'バスケットボール' },
+    3 => { content: 'バレーボール' },
+    4 => { content: 'テニス' },
+    5 => { content: '卓球' },
+    6 => { content: 'バドミントン' },
+    7 => { content: 'その他' }
+  } },
+  { title: '好きな季節は？', choices_attributes: {
+    0 => { content: '春' },
+    1 => { content: '夏' },
+    2 => { content: '秋' },
+    3 => { content: '冬' }
+  } },
 ]
 
 questionnaire.each do |q|
