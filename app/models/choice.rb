@@ -16,4 +16,9 @@ class Choice < ApplicationRecord
       0.0
     end
   end
+
+  def select_choice
+    cnt = self.ans_cnt
+    self.update_attributes(ans_cnt: cnt + 1)
+  end
 end
