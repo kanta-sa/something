@@ -1,16 +1,22 @@
 <div>
-  <%= link_to 'アンケート作成', new_question_path %>
+  <%= link_to 'アンケート作成', new_question_path, class: 'nav-link' %>
 </div>
 
 <h2>アンケート一覧</h2>
 <div>
   <% @questions.each do |q| %>
-    <div>
-      <%= link_to question_path(q) do %>
-        <%= q.title %>
-      <% end  %>
+    <div class="question-content">
+      <div>
+        <%= link_to question_path(q), class: 'nav-link' do %>
+          <%= q.title %>
+        <% end  %>
+      </div>
+      <% if q.user_answered?(current_user) %>
+        <div>( 回答数: <%= q.total_ans_cnt %>, <span>回答済み</span> )</div>
+      <% else %>
+        <div>( 回答数: <%= q.total_ans_cnt %>, <span>未回答</span> )</div>
+      <% end %>
     </div>
-
   <% end %>
 </div>
 

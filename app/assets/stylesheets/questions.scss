@@ -36,3 +36,10 @@
     }
   }
 }
+
+.question-content {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
