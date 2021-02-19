@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
   # 関連
   belongs_to :user
+  belongs_to :genre
   has_many :user_questions
   has_many :users, through: :user_questions
   has_many :choices

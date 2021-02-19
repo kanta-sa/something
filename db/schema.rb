@@ -29,12 +29,20 @@ ActiveRecord::Schema.define(version: 2021_02_11_012135) do
     t.index ["question_id"], name: "index_choices_on_question_id"
   end
 
+  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.boolean "answered", default: false
     t.bigint "user_id"
+    t.bigint "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_questions_on_genre_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
@@ -71,6 +79,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_012135) do
 
   add_foreign_key "categories", "users"
   add_foreign_key "choices", "questions"
+  add_foreign_key "questions", "genres"
   add_foreign_key "questions", "users"
   add_foreign_key "todos", "categories"
   add_foreign_key "user_questions", "questions"
