@@ -5,13 +5,14 @@
   </div>
 
   <fieldset>
-    <legend>Choices: </legend>
+    <legend>選択肢: </legend>
     <%= f.fields_for :choices do |ff| %>
       <%= render 'choice_fields', f: ff %>
     <% end %>
-    <%= link_to_add_fields 'Add Choices', f, :choices %>
+    <%= link_to_add_fields '選択肢を追加する', f, :choices %>
   </fieldset>
 
+  <p>ジャンルを選択する</p>
   <div>
     <%= f.collection_radio_buttons :genre, @genres, :id, :name %>
   </div>
