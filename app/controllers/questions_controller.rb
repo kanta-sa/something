@@ -13,14 +13,17 @@ class QuestionsController < ApplicationController
   def new
     @question = current_user.questions.new
     @question.choices.build
+    @genres = Genre.all
   end
 
   def create
     @question = current_user.questions.build(question_params)
+    @question.genre_id = Genre.find_by(id: params[:question][:genre]).id
     if @question.save
       flash[:notice] = 'アンケートを作成しました。'
       redirect_to questions_path
     else
+      @genres = Genre.all
       render :new
     end
   end

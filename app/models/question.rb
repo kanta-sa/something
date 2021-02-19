@@ -12,6 +12,7 @@ class Question < ApplicationRecord
                             length: { maximum: 30 }
   # validates :answered,    presence: true
   validates :user,          presence: true
+  validates :genre,         presence: true
 
   # メソッド
   def user_answered?(user)
