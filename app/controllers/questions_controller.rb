@@ -18,7 +18,18 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.build(question_params)
-    @question.genre_id = Genre.find_by(id: params[:question][:genre]).id
+    @genre = Genre.find_by(id: params[:question][:genre])
+    if @genre.nil?
+      unless params[:question][:genre_name].blank?
+        @genre = Genre.new(name: params[:question][:genre_name])
+        unless @genre.save
+          @question.errors.add(:base, @genre.errors.full_messages)
+        end
+      else
+        @genre = Genre.find_by(name: 'その他')
+      end
+    end
+    @question.genre_id = @genre.id
     if @question.save
       flash[:notice] = 'アンケートを作成しました。'
       redirect_to questions_path

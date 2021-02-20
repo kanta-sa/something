@@ -1,4 +1,7 @@
 <%= form_with model: @question, local: true do |f| %>
+  <% @question.errors.full_messages.each do |msg| %>
+    <li class="red-text"><%= msg %></li>
+  <% end %>
   <div class="">
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -15,6 +18,11 @@
   <p>ジャンルを選択する</p>
   <div>
     <%= f.collection_radio_buttons :genre, @genres, :id, :name %>
+  </div>
+
+  <p>ジャンルを新規作成する</p>
+  <div>
+    <%= f.text_field :genre_name %>
   </div>
 
   <%= f.submit '登録' %>
