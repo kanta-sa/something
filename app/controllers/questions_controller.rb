@@ -22,9 +22,7 @@ class QuestionsController < ApplicationController
     if @genre.nil?
       unless params[:question][:genre_name].blank?
         @genre = Genre.new(name: params[:question][:genre_name])
-        unless @genre.save
-          @question.errors.add(:base, @genre.errors.full_messages)
-        end
+        @genre.save
       else
         @genre = Genre.find_by(name: 'その他')
       end
@@ -34,6 +32,10 @@ class QuestionsController < ApplicationController
       flash[:notice] = 'アンケートを作成しました。'
       redirect_to questions_path
     else
+      @genre.errors.full_messages.each do |msg|
+        @question.errors.add(:base, msg)
+      end
+      @question.errors.delete(:genre)
       @genres = Genre.all
       render :new
     end

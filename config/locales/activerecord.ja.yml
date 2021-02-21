@@ -5,6 +5,7 @@ ja:
       todo: 'TODO'
       question: 'アンケート'
       choice: '回答'
+      genre: 'ジャンル'
     attributes:
       category:
         name: 'カテゴリー名'
@@ -20,6 +21,8 @@ ja:
         content: '回答'
       choice:
         content: '回答'
+      genre:
+        name: 'ジャンル名'
   enumerize:
     todo:
       status:
