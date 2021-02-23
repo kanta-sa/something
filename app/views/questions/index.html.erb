@@ -3,20 +3,24 @@
 </div>
 
 <h2>アンケート一覧</h2>
+
 <div>
-  <% @questions.each do |q| %>
-    <div class="question-content">
-      <div>
-        <%= link_to question_path(q), class: 'nav-link' do %>
-          <%= q.title %>
-        <% end  %>
+  <% @genres.each do |genre| %>
+    <h3 style="color: blue;"><%= genre.name %></h3>
+    <% genre.questions.each do |q| %>
+      <div class="question-content">
+        <div>
+          <%= link_to question_path(q), class: 'nav-link' do %>
+            <%= q.title %>
+          <% end  %>
+        </div>
+        <% if q.user_answered?(current_user) %>
+          <div>( 回答数: <%= q.total_ans_cnt %>, <span>回答済み</span> )</div>
+        <% else %>
+          <div>( 回答数: <%= q.total_ans_cnt %>, <span>未回答</span> )</div>
+        <% end %>
       </div>
-      <% if q.user_answered?(current_user) %>
-        <div>( 回答数: <%= q.total_ans_cnt %>, <span>回答済み</span> )</div>
-      <% else %>
-        <div>( 回答数: <%= q.total_ans_cnt %>, <span>未回答</span> )</div>
-      <% end %>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
