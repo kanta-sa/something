@@ -20,11 +20,11 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
     @genre = Genre.find_by(id: params[:question][:genre])
     if @genre.nil?
-      unless params[:question][:genre_name].blank?
+      if params[:question][:genre_name].blank?
+        @genre = Genre.find_by(name: 'その他')
+      else
         @genre = Genre.new(name: params[:question][:genre_name])
         @genre.save
-      else
-        @genre = Genre.find_by(name: 'その他')
       end
     end
     @question.genre_id = @genre.id
