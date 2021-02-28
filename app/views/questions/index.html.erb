@@ -6,7 +6,7 @@
 
 <div>
   <% @genres.each do |genre| %>
-    <h3 style="color: blue;"><%= genre.name %></h3>
+    <h3 class="genre-title"><%= genre.name %></h3>
     <% genre.questions.each do |q| %>
       <div class="question-content">
         <div>
