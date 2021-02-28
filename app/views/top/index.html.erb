@@ -1,17 +1,17 @@
 <div class="">
   <% unless user_signed_in? %>
     <div>
-      <%= link_to '新規登録', new_user_registration_path %>
+      <%= link_to '新規登録', new_user_registration_path, class: 'nav-link' %>
     </div>
     <div>
-      <%= link_to 'ログイン', new_user_session_path %>
+      <%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %>
     </div>
   <% else %>
     <div>
-      <%= link_to 'TODO', categories_path %>
+      <%= link_to 'TODO', categories_path, class: 'nav-link' %>
     </div>
     <div>
-      <%= link_to 'アンケート', questions_path %>
+      <%= link_to 'アンケート', questions_path, class: 'nav-link' %>
     </div>
   <% end %>
 </div>

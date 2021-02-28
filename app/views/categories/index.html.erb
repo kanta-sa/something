@@ -4,7 +4,7 @@
   <div class="category-items">
     <% @categories.each do |category| %>
       <div class="category-item">
-        <%= link_to category_path(category) do %>
+        <%= link_to category_path(category), class: 'nav-link' do %>
           <%= category.name %>
         <% end %>
         <% category.todos.each do |todo| %>
@@ -12,7 +12,7 @@
             <% if todo.status.yet? %>
               <p> - <%= todo.title %></p>
               <div>
-                <%= link_to '実行済み', category_todo_path(category, todo, params: { flg: true }), method: :put %>
+                <%= link_to '実行済み', category_todo_path(category, todo, params: { flg: true }), method: :put, class: 'nav-link' %>
               </div>
             <% else %>
               <p class="grey-scale"> - <%= todo.title %></p>
