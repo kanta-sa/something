@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @genres = Genre.all
+    @genres = Genre.search(params[:search])
   end
 
   def show
