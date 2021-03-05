@@ -4,12 +4,14 @@
 
 <h2>アンケート一覧</h2>
 
-<p>ジャンルで絞込</p>
-<%= form_tag(questions_path, method: :get) do %>
-  <% options = options_from_collection_for_select(Genre.all, :name, :name) %>
-  <%= select_tag('search', options, include_blank: true) %>
-  <%= submit_tag '検索' %>
-<% end %>
+<div class="genre-search">
+  <p>ジャンルで絞込</p>
+  <%= form_tag(questions_path, method: :get) do %>
+    <% options = options_from_collection_for_select(Genre.all, :name, :name) %>
+    <%= select_tag('search', options, include_blank: true) %>
+    <%= submit_tag '検索' %>
+  <% end %>
+</div>
 
 <div>
   <% @genres.each do |genre| %>

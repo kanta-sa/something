@@ -54,3 +54,10 @@
   background: #f4f4f4;
   color: blue;
 }
+
+.genre-search {
+  margin: 2% 0;
+  & > p{
+    font-style: italic;
+  }
+}
