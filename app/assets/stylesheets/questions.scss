@@ -3,6 +3,12 @@
   margin: 2% auto;
 }
 
+.questionnaire-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+
 .question-title {
   border-bottom: 1px solid black;
   margin: 1%;
@@ -56,7 +62,6 @@
 }
 
 .genre-search {
-  margin: 2% 0;
   & > p{
     font-style: italic;
   }
